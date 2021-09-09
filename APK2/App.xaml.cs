@@ -35,7 +35,7 @@ namespace APK2
         {
 
             services.AddTransient<Connection>();
-            //var connectionString = @"Server=pw72n.spectrum.myjino.ru;User id=353738_wp1;password=yDr3R5xej;database=353738_wp1; convert zero datetime=True";
+          
             var connectionString = host.Configuration.GetConnectionString("MySqlServer");
             var serverVersion = new MySqlServerVersion(ServerVersion.AutoDetect(connectionString));
 
