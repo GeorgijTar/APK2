@@ -1,0 +1,36 @@
+﻿<Window x:Class="APK2.View.StatusView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APK2.View"
+        mc:Ignorable="d"
+        DataContext="{Binding StatusViewModel, Source={StaticResource Locator}}"
+        Title="Справочник статусов" Height="450" Width="479" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Height="25">
+            <Button x:Name="BtAddStatus"  Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowAdd}">Добавить статус</Button>
+            <Button x:Name="BtEditeStatus" Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowEdite}">Изменить статус</Button>
+        </ToolBar>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="155*"/>
+                <ColumnDefinition Width="324*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Margin="5,0,5,0" AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="DarkGray"
+                  AlternatingRowBackground="#330000FF"
+                  ItemsSource="{Binding Status}" 
+                      SelectedItem="{Binding SelectedStatus}"
+                      Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="30"/>
+                    <DataGridTextColumn Header="Наименование статуса" Binding="{Binding Name}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

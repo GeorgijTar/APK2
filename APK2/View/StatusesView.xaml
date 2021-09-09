@@ -1,0 +1,19 @@
+﻿<Window x:Class="APK2.View.StatusesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        DataContext="{Binding StatusViewModel, Source={StaticResource Locator}}"
+        xmlns:local="clr-namespace:APK2.View"
+        mc:Ignorable="d"
+        Title="StatusesViewModel" Height="114" Width="350">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Height="25" VerticalAlignment="Top">
+            <Button Command="{Binding AddStatus}">Сохранить</Button>
+        </ToolBar>
+        <Grid DockPanel.Dock="Top">
+            <TextBlock Margin="10,5">Наименование статуса:</TextBlock>
+            <TextBox x:Name="TbxStatus" Text="{Binding NameStatus, UpdateSourceTrigger=PropertyChanged}" Margin="10,25,10,10"></TextBox>
+        </Grid>
+    </DockPanel>
+</Window>

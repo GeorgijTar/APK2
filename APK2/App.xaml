@@ -1,0 +1,10 @@
+﻿<Application x:Class="APK2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:APK2"
+             xmlns:vm="clr-namespace:APK2.ViewModel"             
+             StartupUri="View/Autorization.xaml">
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator"/>
+    </Application.Resources>
+</Application>

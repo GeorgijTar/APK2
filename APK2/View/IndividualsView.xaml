@@ -1,0 +1,33 @@
+﻿<Window x:Class="APK2.View.IndividualsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APK2.View"
+        mc:Ignorable="d"
+        DataContext="{Binding IndividualsViewModel, Source={StaticResource Locator}}"
+        Title="Физические лица" Height="550" Width="1000">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Height="25">
+            
+        </ToolBar>
+        <Grid DockPanel.Dock="Top" Height="100" Background="Aqua">
+            
+        </Grid>
+        <DataGrid DockPanel.Dock="Left" Width="1000" AutoGenerateColumns="False"  
+                  IsReadOnly="True"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="DarkGray"
+                  AlternatingRowBackground="#330000FF"  ItemsSource="{Binding Individual}">
+            
+          
+        </DataGrid>
+        
+
+        <StatusBar Name="WindovStatus"  DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Background="Beige" >
+            <StatusBarItem>
+                <TextBlock Text="Готов!"> </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </DockPanel>
+</Window>
