@@ -45,10 +45,12 @@ namespace APK2
                .EnableSensitiveDataLogging()
                .EnableDetailedErrors()
        );
-            services.AddSingleton<AutentificationViewModel>();
-            services.AddSingleton<IndividualsViewModel>();
+            services.AddSingleton<AutentificationViewModel>();            
             services.AddSingleton<StatusesViewModel>();
-                        
+            services.AddSingleton<CounterpartysViewModel>();
+            
+
+
 
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 
@@ -57,12 +59,11 @@ namespace APK2
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            using (var scope = Services.CreateScope()) {
+            using (var scope = Services.CreateScope()) 
+                {
                 var initializer = scope.ServiceProvider.GetRequiredService<Connection>();
                 initializer.InitializeAsync().Wait();
-                var st =initializer.Status();
-
-                          }
+                }
 
 
             base.OnStartup(e);

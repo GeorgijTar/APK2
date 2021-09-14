@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace APK2.View
 {
     /// <summary>
-    /// Логика взаимодействия для IndividualView.xaml
+    /// Логика взаимодействия для CounterpartyView.xaml
     /// </summary>
-    public partial class IndividualView : Window
+    public partial class CounterpartyView : Window
     {
-        public IndividualView()
+        public CounterpartyView()
         {
             InitializeComponent();
         }

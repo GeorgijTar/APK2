@@ -16,16 +16,18 @@ namespace APK2.ViewModel
                 return model;
             }
         }
-                public IndividualsViewModel IndividualsViewModel {
+               
+        public StatusesViewModel StatusViewModel {
             get {
-                var model = App.Services.GetRequiredService<IndividualsViewModel>();
+                var model = App.Services.GetRequiredService<StatusesViewModel>();
                 return model;
             }
         }
 
-        public StatusesViewModel StatusViewModel {
+
+        public CounterpartysViewModel CounterpartysViewModel {
             get {
-                var model = App.Services.GetRequiredService<StatusesViewModel>();
+                var model = App.Services.GetRequiredService<CounterpartysViewModel>();
                 return model;
             }
         }

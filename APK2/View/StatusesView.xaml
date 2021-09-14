@@ -3,17 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         DataContext="{Binding StatusViewModel, Source={StaticResource Locator}}"
         xmlns:local="clr-namespace:APK2.View"
         mc:Ignorable="d"
-        Title="StatusesViewModel" Height="114" Width="350">
+        Title="Статус" Height="114" Width="350">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top" Height="25" VerticalAlignment="Top">
-            <Button Command="{Binding AddStatus}">Сохранить</Button>
+            <Button Command="{Binding AddStatus}">
+                <StackPanel Orientation="Horizontal">
+                    <fa5:ImageAwesome Height="12" Icon="Solid_Save"
+                                                     Margin="0,0,5,0"
+                                                     Foreground="DarkBlue"/>
+                    <TextBlock Text="Сохранить" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </ToolBar>
         <Grid DockPanel.Dock="Top">
             <TextBlock Margin="10,5">Наименование статуса:</TextBlock>
-            <TextBox x:Name="TbxStatus" Text="{Binding NameStatus, UpdateSourceTrigger=PropertyChanged}" Margin="10,25,10,10"></TextBox>
+            <TextBox x:Name="TbxStatus" Text="{Binding SelectedStatus.Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,25,10,10"></TextBox>
         </Grid>
     </DockPanel>
 </Window>

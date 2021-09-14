@@ -81,8 +81,8 @@ namespace APK2._0.View
 
         private void BtnAutorization_Click(object sender, RoutedEventArgs e)
         {
-            StatusView StatusView = new StatusView();
-            StatusView.Show();
+            CounterpartysView CounterpartysView = new CounterpartysView();
+            CounterpartysView.Show();
             Close();
         }
 

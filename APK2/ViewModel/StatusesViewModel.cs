@@ -17,12 +17,7 @@ namespace APK2.ViewModel
     public class StatusesViewModel : Base.BaseViewModel
 
     {
-        private string nameStatus;
-
-        public string NameStatus { get => nameStatus; set => Set(ref nameStatus, value); }
-
-
-        private readonly IRepository<Status> status;
+       private readonly IRepository<Status> status;
 
         public StatusesViewModel(IRepository<Status> status)
         {
@@ -45,16 +40,15 @@ namespace APK2.ViewModel
         }
 
 
-        /// <summary>Выбранный получатель</summary>
-        private Status _SelectedStatus;
+        /// <summary>Выбранный элемент</summary>
+        private Status selectedStatus;
 
-        /// <summary>Выбранный получатель</summary>
+        /// <summary>Выбранный элемент</summary>
         public Status SelectedStatus {
-            get => _SelectedStatus;
+            get => selectedStatus;
             set {
-                Set(ref _SelectedStatus, value);
-                nameStatus = _SelectedStatus.Name;
-            }
+                Set(ref selectedStatus, value);
+                           }
         }
 
 
@@ -70,8 +64,7 @@ namespace APK2.ViewModel
         private void OnOpenVindowAdd(object p)
 
         {
-            statAdd = 1;
-            NameStatus = "";
+            selectedStatus = new();           
             StatusesView = new StatusesView();
             StatusesView.ShowDialog();
         }
@@ -87,7 +80,6 @@ namespace APK2.ViewModel
 
         private void OnOpenVindowEdite(object p)
         {
-            statAdd = 0;
             StatusesView = new StatusesView();
             StatusesView.ShowDialog();
         }
@@ -99,21 +91,27 @@ namespace APK2.ViewModel
         public ICommand AddStatus => addUpdateStatus
            ??= new DelegateCommand(OnCanAddStatus, CanAddStatus);
 
-        private bool CanAddStatus(object p) => NameStatus.Length > 3;
+        private bool CanAddStatus(object p)
+        {  if (SelectedStatus != null) {
+
+            return SelectedStatus.Name != null;
+            }
+        else {
+                return false;
+            }
+            
+        }
 
         private void OnCanAddStatus(object p)
-
         {
-            if (statAdd ==0) {
-                SelectedStatus.Name = NameStatus;
+            if (SelectedStatus.Id != 0) {
                 status.Update(SelectedStatus);
                 StatusesView.Close();
             }
-            else {
-                Status newStatus = new();
-                newStatus.Name = NameStatus;
-                status.Add(newStatus);
+            else {               
+                status.Add(SelectedStatus);
                 StatusesView.Close();
+                LoadData();
             }
         }
         #endregion

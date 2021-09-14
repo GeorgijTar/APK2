@@ -3,29 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:APK2.View"
         mc:Ignorable="d"
         DataContext="{Binding StatusViewModel, Source={StaticResource Locator}}"
         Title="Справочник статусов" Height="450" Width="479" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top" Height="25">
-            <Button x:Name="BtAddStatus"  Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowAdd}">Добавить статус</Button>
-            <Button x:Name="BtEditeStatus" Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowEdite}">Изменить статус</Button>
+            <Button x:Name="BtAddStatus"  Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowAdd}">
+                <StackPanel Orientation="Horizontal">
+                    <fa5:ImageAwesome Height="12" Icon="Solid_PlusCircle"
+                                                     Margin="0,0,5,0"
+                                                     Foreground="DarkBlue"/>
+                    <TextBlock Text="Добавить статус" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtEditeStatus" Height="20" Margin="5,2,5,2" Command="{Binding OpenVindowEdite}">
+                <StackPanel Orientation="Horizontal">
+                    <fa5:ImageAwesome Height="12" Icon="Solid_PencilAlt"
+                                                     Margin="0,0,5,0"
+                                                     Foreground="DarkBlue"/>
+                    <TextBlock Text="Изменить статус" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </ToolBar>
         <Grid DockPanel.Dock="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="155*"/>
-                <ColumnDefinition Width="324*"/>
-            </Grid.ColumnDefinitions>
-
-            <DataGrid Margin="5,0,5,0" AutoGenerateColumns="False"
+                       <DataGrid Margin="5,0,5,0" AutoGenerateColumns="False"
                   IsReadOnly="True"
                   GridLinesVisibility="Vertical"
                   VerticalGridLinesBrush="DarkGray"
                   AlternatingRowBackground="#330000FF"
                   ItemsSource="{Binding Status}" 
                       SelectedItem="{Binding SelectedStatus}"
-                      Grid.ColumnSpan="2">
+                      Grid.ColumnSpan="6">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="30"/>
                     <DataGridTextColumn Header="Наименование статуса" Binding="{Binding Name}" Width="*"/>

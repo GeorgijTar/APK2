@@ -20,11 +20,5 @@ namespace APK2.Data
             await _db.Database.MigrateAsync().ConfigureAwait(false);
         }
 
-
-        public DbSet<Entitys.Status> Status()
-        {
-            return _db.Status;
-        }
-
     }
 }
