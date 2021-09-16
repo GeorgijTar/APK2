@@ -14,9 +14,11 @@ namespace APK2.ViewModel
         private readonly IRepository<Counterparty> counterpartys;
         private readonly IRepository<Account> account;
 
-        public CounterpartysViewModel(IRepository<Counterparty> counterpartys)
+        public CounterpartysViewModel(IRepository<Counterparty> counterpartys, IRepository<Account> account)
         {
             this.counterpartys = counterpartys;
+            this.account = account;
+            LoadData();
         }
         public ObservableCollection<Counterparty> Counterparty { get; } = new();
         public ObservableCollection<Account> Account { get; } = new();
@@ -24,6 +26,7 @@ namespace APK2.ViewModel
         private void LoadData()
         {
             Load(Counterparty, counterpartys);
+            Load(Account, account);
         }
 
         private static void Load<T>(ObservableCollection<T> collection, IRepository<T> rep) where T : BaseEntity
@@ -65,6 +68,9 @@ namespace APK2.ViewModel
 
         {
             selectedCounterparty = new();
+            selectedCounterparty.Guid = new System.Guid();
+            selectedCounterparty.Status = new Status { Id = 12, Name = "Актуально" };
+            selectedCounterparty.TimeSpan = new System.TimeSpan();
             counterpartyView = new CounterpartyView();
             counterpartyView.ShowDialog();
         }
@@ -120,9 +126,9 @@ namespace APK2.ViewModel
             else {
                 counterpartys.Add(SelectedCounterparty);
                 counterpartyView.Close();
-                
+
             }
-          
+
         }
 
 
@@ -130,20 +136,85 @@ namespace APK2.ViewModel
         public ICommand AddUpdate => addUpdate
            ??= new DelegateCommand(OnCanAddCounterparty, CanAddCounterparty);
 
-                private void OnCanAddCounterparty(object p)
+        private void OnCanAddCounterparty(object p)
         {
             if (SelectedCounterparty.Id != 0) {
-                counterpartys.Update(SelectedCounterparty);              
+                counterpartys.Update(SelectedCounterparty);
             }
             else {
-                counterpartys.Add(SelectedCounterparty);              
+                counterpartys.Add(SelectedCounterparty);
 
             }
 
         }
         #endregion
+        #region Коменды AccountView
+        private ICommand openAccountView;
+        public ICommand OpenAccountView => openAccountView
+           ??= new DelegateCommand(OnOpenAccountView, CanOpenAccountView);
 
 
+        private bool CanOpenAccountView(object p)
+        {
+            if (SelectedCounterparty == null) {
+                return false;
+            }
+            else {
+                return SelectedCounterparty.Id > 0;
+            }
+        }
+
+        AccountView accountView;
+        private void OnOpenAccountView(object p)
+        {
+            selectedAccount = new();
+            accountView = new AccountView();
+            accountView.ShowDialog();
+
+        }
+
+        private ICommand editeAccount;
+        public ICommand EditeAccount => editeAccount
+           ??= new DelegateCommand(OnEditeAccount, CanEditeAccount);
+
+
+        private bool CanEditeAccount(object p)
+        {
+            if (SelectedAccount == null) {
+                return false;
+            }
+            else {
+                return SelectedAccount.Id > 0;
+            }
+        }
+        private void OnEditeAccount(object p)
+        {            
+            accountView = new AccountView();
+            accountView.ShowDialog();
+        }
+
+
+        private ICommand deleteAccount;
+        public ICommand DeleteAccount => deleteAccount
+           ??= new DelegateCommand(OnDeleteAccount, CanDeleteAccount);
+
+
+        private bool CanDeleteAccount(object p)
+        {
+            if (SelectedAccount == null) {
+                return false;
+            }
+            else {
+                return SelectedAccount.Id > 0;
+            }
+        }
+        private void OnDeleteAccount(object p)
+        {
+            account.Remove(SelectedAccount.Id);
+        }
+
+
+        #endregion
         #endregion
     }
 }

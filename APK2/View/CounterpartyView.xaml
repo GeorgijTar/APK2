@@ -74,7 +74,7 @@
         <TextBox Grid.Column="1"  Grid.Row="8" Margin="5" Text="{Binding SelectedCounterparty.Email, UpdateSourceTrigger=PropertyChanged}"/>
 
         <ToolBar Grid.Row="9" Grid.ColumnSpan="5" Height="35" VerticalAlignment="Bottom">
-            <Button>
+            <Button Command="{Binding OpenAccountView}" Margin="5,0">
                 <StackPanel Orientation="Horizontal">
                     <fa5:ImageAwesome Height="20" Icon="Solid_PlusCircle"
                                                      Margin="0,0,5,0"
@@ -82,8 +82,8 @@
                     <TextBlock Text="Добавить счет" VerticalAlignment="Center" FontSize="12" FontWeight="Bold"/>
                 </StackPanel>
             </Button>
-            
-            <Button>
+
+            <Button Command="{Binding EditeAccount}"  Margin="5,0">
                 <StackPanel Orientation="Horizontal">
                     <fa5:ImageAwesome Height="20" Icon="Solid_Pen"
                                                      Margin="0,0,5,0"
@@ -91,7 +91,7 @@
                     <TextBlock Text="Редактировать счет" VerticalAlignment="Center" FontSize="12" FontWeight="Bold"/>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Command="{Binding DeleteAccount}"  Margin="5,0">
                 <StackPanel Orientation="Horizontal">
                     <fa5:ImageAwesome Height="20" Icon="Solid_Trash"
                                                      Margin="0,0,5,0"

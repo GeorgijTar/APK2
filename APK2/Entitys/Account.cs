@@ -26,5 +26,7 @@ namespace APK2.Entitys
         [Required(ErrorMessage = "Расчетный счет обязательно для заполнения"), StringLength(20, MinimumLength = 20, ErrorMessage = @"Недопустимый Р/счет")]
         public string RsShet { get; set; }
 
+        Counterparty Counterparty { get; set; }
+
     }
 }

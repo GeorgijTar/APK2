@@ -15,6 +15,7 @@ namespace APK2.Service
         private readonly DataContext db;
         private DbSet<T> Set { get; }
 
+       
         public DbRepository(DataContext db)
         {
             this.db = db;

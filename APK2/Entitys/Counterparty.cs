@@ -43,8 +43,6 @@ namespace APK2.Entitys
 
         public string Address { get; set; } //Адрес для документов
 
-        public Account Account { get; set; }
-
-        public TimeSpan TimeSpan { get; set; }
+       public TimeSpan TimeSpan { get; set; }
     }
 }
