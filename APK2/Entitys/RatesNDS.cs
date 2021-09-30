@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace APK2.Entitys
 {
-   public class Group : BaseEntity
+    public class RatesNDS: BaseEntity
     {
         public virtual Status Status { get; set; }
-        public string NameGroup { get; set; }
-        public string TableGroup { get; set; }
+        public string Caption { get; set; }
+        public decimal Rate { get; set; }
 
     }
 }

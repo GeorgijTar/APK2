@@ -3,14 +3,16 @@ using System;
 using APK2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace APK2.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210920135114_Edete_Entitys")]
+    partial class Edete_Entitys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,70 +285,6 @@ namespace APK2.Migrations
                     b.ToTable("Individual");
                 });
 
-            modelBuilder.Entity("APK2.Entitys.Invoce", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<decimal>("AmountNDS")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int?>("CounterpartyId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateInvoce")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DateTimeCreat")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid>("Guid")
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("LastChange")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("NoteInvoce")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NumberInvoce")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("RatesNDSId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RegistrDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("RegistrNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int?>("UserCreatId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CounterpartyId");
-
-                    b.HasIndex("RatesNDSId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("UserCreatId");
-
-                    b.ToTable("Invoces");
-                });
-
             modelBuilder.Entity("APK2.Entitys.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -367,28 +305,6 @@ namespace APK2.Migrations
                     b.HasIndex("StatusId");
 
                     b.ToTable("Post");
-                });
-
-            modelBuilder.Entity("APK2.Entitys.RatesNDS", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Caption")
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int?>("StatusId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("RatesNDs");
                 });
 
             modelBuilder.Entity("APK2.Entitys.Status", b =>
@@ -532,43 +448,7 @@ namespace APK2.Migrations
                     b.Navigation("Status");
                 });
 
-            modelBuilder.Entity("APK2.Entitys.Invoce", b =>
-                {
-                    b.HasOne("APK2.Entitys.Counterparty", "Counterparty")
-                        .WithMany()
-                        .HasForeignKey("CounterpartyId");
-
-                    b.HasOne("APK2.Entitys.RatesNDS", "RatesNDS")
-                        .WithMany()
-                        .HasForeignKey("RatesNDSId");
-
-                    b.HasOne("APK2.Entitys.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId");
-
-                    b.HasOne("APK2.Entitys.User", "UserCreat")
-                        .WithMany()
-                        .HasForeignKey("UserCreatId");
-
-                    b.Navigation("Counterparty");
-
-                    b.Navigation("RatesNDS");
-
-                    b.Navigation("Status");
-
-                    b.Navigation("UserCreat");
-                });
-
             modelBuilder.Entity("APK2.Entitys.Post", b =>
-                {
-                    b.HasOne("APK2.Entitys.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId");
-
-                    b.Navigation("Status");
-                });
-
-            modelBuilder.Entity("APK2.Entitys.RatesNDS", b =>
                 {
                     b.HasOne("APK2.Entitys.Status", "Status")
                         .WithMany()

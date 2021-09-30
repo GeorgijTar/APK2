@@ -39,6 +39,14 @@
                     <TextBlock Text="Удалить контрагента" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
                 </StackPanel>
             </Button>
+            <Button Command="{Binding UpdateCounterparty}">
+                <StackPanel Orientation="Horizontal">
+                    <fa5:ImageAwesome Height="25" Icon="Solid_Recycle"
+                                                     Margin="0,0,5,0"
+                                                     Foreground="DarkOrange"/>
+                    <TextBlock Text="Обновить" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                </StackPanel>
+            </Button>
         </ToolBar>
         <GroupBox Grid.Row="1" Header="Фильтр" BorderThickness="3" BorderBrush="DarkBlue">
             

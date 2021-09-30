@@ -10,8 +10,8 @@ namespace APK2.Entitys
     public class DocumentsIndividual: BaseEntity
     {
         public Guid Guid { get; set; }
-        public Status Status { get; set; }
-        public TypeDoc TypeDoc { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual TypeDoc TypeDoc { get; set; }
         public string Series { get; set; }
         public string Number { get; set; }
         public DateTime DateIssue { get; set; }

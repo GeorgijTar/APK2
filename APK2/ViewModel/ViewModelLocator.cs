@@ -32,5 +32,32 @@ namespace APK2.ViewModel
             }
         }
 
+
+        public InvoicesViewModel InvoicesViewModel {
+            get {
+                var model = App.Services.GetRequiredService<InvoicesViewModel>();
+                return model;
+            }
+
+        }
+
+
+        public TestSpravochikCounterViewModel TestSpravochikCounterViewModel {
+            get {
+                var model = App.Services.GetRequiredService<TestSpravochikCounterViewModel>();
+                return model;
+            }
+
+        }
+
+        
+            public TestViewModel TestViewModel {
+            get {
+                var model = App.Services.GetRequiredService<TestViewModel>();
+                return model;
+            }
+
+        }
+
     }
 }

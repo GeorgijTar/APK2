@@ -37,8 +37,8 @@
                       SelectedItem="{Binding SelectedStatus}"
                       Grid.ColumnSpan="6">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="30"/>
-                    <DataGridTextColumn Header="Наименование статуса" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Status.Id}" MinWidth="30"/>
+                    <DataGridTextColumn Header="Наименование статуса" Binding="{Binding Status.Name}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

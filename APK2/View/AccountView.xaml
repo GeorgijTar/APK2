@@ -7,7 +7,7 @@
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
          DataContext="{Binding CounterpartysViewModel, Source={StaticResource Locator}}"
-        Title="Счет организации" Height="220" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Счет организации" Height="230" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
@@ -17,9 +17,39 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="200*"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="ID: "/>
+                    <TextBlock Text="{Binding SelectedAccount.Id, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="GUID: "/>
+                    <TextBlock Text="{Binding SelectedAccount.Guid, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>                
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Статус: "/>
+                    <TextBlock Text="{Binding SelectedAccount.Status.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="к/сч: "/>
+                    <TextBlock Text="{Binding SelectedAccount.KorShet, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
         <ToolBar Grid.Row="0" Grid.ColumnSpan="3">
-            <Button Margin="5,0" Command="{Binding AddUpdate}">
+            <Button Margin="5,0" Command="{Binding AddUpdate }">
                 <StackPanel Orientation="Horizontal">
                     <fa5:ImageAwesome Height="20" Icon="Regular_Save"
                                                      Margin="0,0,5,0"
@@ -46,14 +76,15 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Расчетный счет:"  VerticalAlignment="Center" Margin="10,0"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedAccount.RsShet}"  Grid.ColumnSpan="2" VerticalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="1" MaxLength="20" Text="{Binding SelectedAccount.RsShet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.ColumnSpan="2" VerticalAlignment="Center" />
             <TextBlock Grid.Row="1" Grid.Column="0" Text="БИК:"  VerticalAlignment="Center" Margin="10,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding SelectedAccount.BIK}"  VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" MaxLength="9" Text="{Binding SelectedAccount.BIK, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Наименование банка:"  VerticalAlignment="Center" Margin="10,0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"  Text="{Binding SelectedAccount.NameBank}" Grid.ColumnSpan="3"  VerticalAlignment="Stretch" AcceptsReturn="True"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"  Text="{Binding SelectedAccount.NameBank, UpdateSourceTrigger=PropertyChanged,  Mode=TwoWay}" Grid.ColumnSpan="3" Margin="0,3,0,3" VerticalAlignment="Stretch" AcceptsReturn="True"/>
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Кор. счет:"  VerticalAlignment="Center" Margin="10,0"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding SelectedAccount.KorShet}" VerticalAlignment="Center" />
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="20" Text="{Binding SelectedAccount.KorShet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" VerticalAlignment="Center" />
             <CheckBox  Grid.Row="5" Grid.Column="1" Content="Актуален" VerticalAlignment="Center"/>
+            <Button Content="Заполнить по БИК" Command="{Binding GetBank}" Grid.Column="2" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>

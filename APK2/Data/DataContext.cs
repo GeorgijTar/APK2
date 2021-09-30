@@ -20,6 +20,8 @@ namespace APK2.Data
         public DbSet<User> User { get; set; }
         public DbSet<Counterparty> Counterparty { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Invoce> Invoces { get; set; }
+        public DbSet<RatesNDS> RatesNDs { get; set; }
 
 
         public DataContext(DbContextOptions<DataContext> options) :base(options)

@@ -11,5 +11,7 @@ namespace APK2.Entitys.Base
     {
         [Key]
         public int Id { get; set; }
+
+       
     }
 }

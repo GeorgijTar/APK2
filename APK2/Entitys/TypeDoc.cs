@@ -9,7 +9,7 @@ namespace APK2.Entitys
 {
   public  class TypeDoc : BaseEntity
     {
-        public Status Status { get; set; }
+        public virtual Status Status { get; set; }
         public string NameType { get; set; }
         public string TableType { get; set; }
     }

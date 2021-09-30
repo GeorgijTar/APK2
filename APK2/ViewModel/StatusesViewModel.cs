@@ -3,6 +3,7 @@ using APK2.Entitys;
 using APK2.Entitys.Base;
 using APK2.Interfaces;
 using APK2.View;
+using APK2.ViewModel.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,18 +15,18 @@ using System.Windows.Input;
 
 namespace APK2.ViewModel
 {
-    public class StatusesViewModel : Base.BaseViewModel
+    public class StatusesViewModel :BaseViewModel
 
     {
-       private readonly IRepository<Status> status;
+       private readonly IRepository<BaseEntity> status;
 
-        public StatusesViewModel(IRepository<Status> status)
+        public StatusesViewModel(IRepository<BaseEntity> status)
         {
             this.status = status;
             LoadData();
         }
 
-        public ObservableCollection<Status> Status { get; } = new();
+        public ObservableCollection<BaseEntity> Status { get; } = new();
 
         private void LoadData()
         {

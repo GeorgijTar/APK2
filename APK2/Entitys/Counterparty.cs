@@ -10,10 +10,9 @@ namespace APK2.Entitys
 {
     public class Counterparty : BaseEntity
     {
-
-        public Status Status { get; set; }
-
         public Guid Guid { get; set; }
+
+        public virtual Status Status { get; set; }
 
         [Required(ErrorMessage = "Наименование обязательное поле")]
         public string Name { get; set; }
@@ -43,6 +42,6 @@ namespace APK2.Entitys
 
         public string Address { get; set; } //Адрес для документов
 
-       public TimeSpan TimeSpan { get; set; }
+       public DateTime TimeSpan { get; set; }
     }
 }

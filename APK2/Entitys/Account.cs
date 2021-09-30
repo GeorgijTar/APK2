@@ -12,7 +12,7 @@ namespace APK2.Entitys
     {
         public Guid Guid { get; set; }
 
-        public Status Status { get; set; }
+        public virtual Status Status { get; set; }
 
         [Required(ErrorMessage = "Наименование банка обязательно для заполнения")]
         public string NameBank { get; set; }
@@ -26,7 +26,9 @@ namespace APK2.Entitys
         [Required(ErrorMessage = "Расчетный счет обязательно для заполнения"), StringLength(20, MinimumLength = 20, ErrorMessage = @"Недопустимый Р/счет")]
         public string RsShet { get; set; }
 
-        Counterparty Counterparty { get; set; }
+        public DateTime TimSpan { get; set; }
+
+       public virtual Counterparty Counterparty { get; set; }
 
     }
 }

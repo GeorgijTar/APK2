@@ -52,26 +52,26 @@
         </ToolBar>
 
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Наименование:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"  Margin="5,5,10,5" Text="{Binding SelectedCounterparty.Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"  Margin="5,5,10,5" Text="{Binding ItemCounterparty.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="Платежное наименование:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Margin="5,5,10,5" Text="{Binding SelectedCounterparty.PayName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Margin="5,5,10,5" Text="{Binding ItemCounterparty.PayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="3" Text="ИНН:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1"  Grid.Row="3" Margin="5" Text="{Binding SelectedCounterparty.INN, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1"  Grid.Row="3" Margin="5" Text="{Binding ItemCounterparty.INN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="2" Grid.Row="3" Text="КПП:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="3"  Grid.Row="3" Margin="5" Text="{Binding SelectedCounterparty.KPP, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3"  Grid.Row="3" Margin="5" Text="{Binding ItemCounterparty.KPP, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="4" Text="ОГРН/ОГРНИП:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1"  Grid.Row="4" Margin="5" Text="{Binding SelectedCounterparty.OGRN, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1"  Grid.Row="4" Margin="5" Text="{Binding ItemCounterparty.OGRN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="2" Grid.Row="4" Text="ОКПО:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="3"  Grid.Row="4" Margin="5" Text="{Binding SelectedCounterparty.OKPO, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3"  Grid.Row="4" Margin="5" Text="{Binding ItemCounterparty.OKPO, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Адрес:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="2"  Grid.Row="5" Margin="5,5,10,5" AcceptsReturn="True"
- Text="{Binding SelectedCounterparty.Address, UpdateSourceTrigger=PropertyChanged}"/>
+                        Text="{Binding ItemCounterparty.Address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="7" Text="Телефон:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1"  Grid.Row="7" Margin="5" Text="{Binding SelectedCounterparty.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1"  Grid.Row="7" Margin="5" Text="{Binding ItemCounterparty.PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="2" Grid.Row="7" Text="E-mail:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="3"  Grid.ColumnSpan="2" Grid.Row="7" Margin="5,5,10,5" Text="{Binding SelectedCounterparty.Email, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3"  Grid.ColumnSpan="2" Grid.Row="7" Margin="5,5,10,5" Text="{Binding SelectedCounterparty.Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <TextBlock Grid.Column="0" Grid.Row="8" Text="Дата регистрации:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
-        <TextBox Grid.Column="1"  Grid.Row="8" Margin="5" Text="{Binding SelectedCounterparty.Email, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1"  Grid.Row="8" Margin="5" Text="{Binding ItemCounterparty.Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
         <ToolBar Grid.Row="9" Grid.ColumnSpan="5" Height="35" VerticalAlignment="Bottom">
             <Button Command="{Binding OpenAccountView}" Margin="5,0">
@@ -120,7 +120,7 @@
             <StatusBarItem>
                 <ResizeGrip/>
             </StatusBarItem>
-            <StatusBarItem Content="{Binding SelectedCounterparty.Status.Name}" FontWeight="Bold" />
+            <StatusBarItem  FontWeight="Bold" />
         </StatusBar>
         
     </Grid>

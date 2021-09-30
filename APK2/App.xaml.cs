@@ -34,21 +34,29 @@ namespace APK2
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
 
-            services.AddTransient<Connection>();
+            services.AddScoped<Connection>();
           
             var connectionString = host.Configuration.GetConnectionString("MySqlServer");
             var serverVersion = new MySqlServerVersion(ServerVersion.AutoDetect(connectionString));
 
             services.AddDbContext<DataContext>(
            dbContextOptions => dbContextOptions
+           .UseLazyLoadingProxies()
                .UseMySql(connectionString, serverVersion)
                .EnableSensitiveDataLogging()
                .EnableDetailedErrors()
        );
-            services.AddSingleton<AutentificationViewModel>();            
-            services.AddSingleton<StatusesViewModel>();
-            services.AddSingleton<CounterpartysViewModel>();
+            services.AddScoped<AutentificationViewModel>();            
+            services.AddScoped<StatusesViewModel>();
+            services.AddScoped<CounterpartysViewModel>();
+            services.AddScoped<InvoicesViewModel>();
+            services.AddScoped<TestSpravochikCounterViewModel>();
+            services.AddScoped<TestViewModel>();
             
+
+
+
+
 
 
 

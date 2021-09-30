@@ -11,6 +11,7 @@ namespace APK2.Entitys
     {
         public Guid Guid { get; set; }
 
+        public virtual Status Status { get; set; }
         public string NamePost { get; set; }
 
     }
