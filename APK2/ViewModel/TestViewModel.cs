@@ -16,6 +16,8 @@ namespace APK2.ViewModel
 
         public Invoce Invoce { get; set; }
 
+        public Counterparty Counterparty { get; set; }
+
 
         #region Команды
 
