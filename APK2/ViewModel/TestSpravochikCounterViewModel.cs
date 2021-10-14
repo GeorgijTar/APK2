@@ -3,7 +3,6 @@ using APK2.Entitys;
 using APK2.Entitys.Base;
 using APK2.Interfaces;
 using APK2.ViewModel.Base;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -23,6 +22,11 @@ namespace APK2.ViewModel
             this.status = status;
             LoadData();
         }
+
+        public TestSpravochikCounterViewModel()
+        {
+        }
+
         public ObservableCollection<Counterparty> Counterpartys { get; } = new();
         public ObservableCollection<Account> Account { get; } = new();
 
@@ -76,7 +80,14 @@ namespace APK2.ViewModel
         }
 
 
+        private ICommand selectCommand;
+        public ICommand SelectCommand => selectCommand
+           ??= new DelegateCommand(OnOpenAccountView);
 
+        private void OnOpenAccountView(object p)
+        {
+            ViewModelLocator.Instance.TestViewModel.Counterparty = SelectedCounterparty;
+        }
     }
 
 

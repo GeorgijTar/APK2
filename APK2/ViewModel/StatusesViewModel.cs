@@ -61,7 +61,6 @@ namespace APK2.ViewModel
         public ICommand OpenVindowAdd => openVindowAdd
             ??= new DelegateCommand(OnOpenVindowAdd, CanOpenVindowAdd);
         private bool CanOpenVindowAdd(object p) => true;
-        private int statAdd=0; 
         private void OnOpenVindowAdd(object p)
 
         {

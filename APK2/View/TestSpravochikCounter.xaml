@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         DataContext="{Binding TestSpravochikCounterViewModel, Source={StaticResource Locator}}"
         Title="Тестовый справочник контрагентов" Height="450" Width="800">
+    
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>

@@ -10,8 +10,8 @@ namespace APK2.Entitys
 {
   public  class Status:BaseEntity
     {
-        [Required]
-        public int Id { get; set; }
+       // [Required]
+       // public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 

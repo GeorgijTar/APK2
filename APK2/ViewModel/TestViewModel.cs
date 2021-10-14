@@ -3,8 +3,6 @@ using APK2.Entitys;
 using APK2.Interfaces;
 using APK2.View;
 using APK2.ViewModel.Base;
-using System;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace APK2.ViewModel
@@ -30,6 +28,8 @@ namespace APK2.ViewModel
         {
             testSpr = new();
             testSpr.ShowDialog();
+            
+
 
         }
         #endregion

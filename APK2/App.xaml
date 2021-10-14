@@ -5,22 +5,8 @@
              xmlns:vm="clr-namespace:APK2.ViewModel"             
              StartupUri="View/TestView.xaml">
     <Application.Resources>
-        <vm:ViewModelLocator x:Key="Locator"/>
-        
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10"
-                                Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" Padding="3">
-
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <!--<vm:ViewModelLocator x:Key="Locator"/>-->
+        <x:Static Member="vm:ViewModelLocator.Instance" MemberType="{x:Type vm:ViewModelLocator}"  x:Key="Locator"/>
+       
     </Application.Resources>
 </Application>
