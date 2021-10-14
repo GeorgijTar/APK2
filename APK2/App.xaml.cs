@@ -50,9 +50,8 @@ namespace APK2
             services.AddScoped<StatusesViewModel>();
             services.AddScoped<CounterpartysViewModel>();
             services.AddScoped<InvoicesViewModel>();
-            services.AddScoped<TestSpravochikCounterViewModel>();
             services.AddScoped<TestViewModel>();
-            
+            services.AddScoped<TestSpravochikCounterViewModel>();
 
 
 

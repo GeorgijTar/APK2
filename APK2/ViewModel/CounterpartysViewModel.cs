@@ -56,7 +56,7 @@ namespace APK2.ViewModel
         public Counterparty SelectedCounterparty {
             get => selectedCounterparty;
             set {
-                Set(ref selectedCounterparty, value);
+                SetProperty(ref selectedCounterparty, value);
             }
         }
 
@@ -66,7 +66,7 @@ namespace APK2.ViewModel
         public Account SelectedAccount {
             get => selectedAccount;
             set {
-                Set(ref selectedAccount, value);
+                SetProperty(ref selectedAccount, value);
             }
         }
 
@@ -76,7 +76,7 @@ namespace APK2.ViewModel
         public Counterparty ItemCounterparty {
             get => itemCounterparty;
             set {
-                Set(ref itemCounterparty, value);
+                SetProperty(ref itemCounterparty, value);
             }
         }
 

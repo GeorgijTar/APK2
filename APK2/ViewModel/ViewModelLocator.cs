@@ -16,7 +16,7 @@ namespace APK2.ViewModel
                 return model;
             }
         }
-               
+
         public StatusesViewModel StatusViewModel {
             get {
                 var model = App.Services.GetRequiredService<StatusesViewModel>();
@@ -41,19 +41,17 @@ namespace APK2.ViewModel
 
         }
 
-
-        public TestSpravochikCounterViewModel TestSpravochikCounterViewModel {
+        public TestViewModel TestViewModel {
             get {
-                var model = App.Services.GetRequiredService<TestSpravochikCounterViewModel>();
+                var model = App.Services.GetRequiredService<TestViewModel>();
                 return model;
             }
 
         }
 
-        
-            public TestViewModel TestViewModel {
+        public TestSpravochikCounterViewModel TestSpravochikCounterViewModel {
             get {
-                var model = App.Services.GetRequiredService<TestViewModel>();
+                var model = App.Services.GetRequiredService<TestSpravochikCounterViewModel>();
                 return model;
             }
 

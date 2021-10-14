@@ -17,7 +17,7 @@ namespace APK2.ViewModel
             get => counterparty;
 
             set {
-                Set(ref counterparty, value);
+                SetProperty(ref counterparty, value);
                 if (Counterparty.Name.Length > 3) {
                     
                 }

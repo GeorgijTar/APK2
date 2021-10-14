@@ -1,35 +1,48 @@
-﻿using APK2.Entitys;
+﻿using APK2.Command.Base;
+using APK2.Entitys;
+using APK2.Entitys.Base;
 using APK2.Interfaces;
 using APK2.ViewModel.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace APK2.ViewModel
 {
-  public  class TestSpravochikCounterViewModel: BaseViewModel
+    public class TestSpravochikCounterViewModel : BaseViewModel
     {
-        private IRepository<Counterparty> counter;
-        private Invoce invoce;
 
-       
-        public TestSpravochikCounterViewModel(IRepository<Counterparty> counter)
+        private readonly IRepository<Counterparty> counterparty;
+        private readonly IRepository<Account> account;
+
+        public TestSpravochikCounterViewModel(IRepository<Counterparty> counterpartys, IRepository<Account> account, IRepository<Status> status)
         {
-            this.counter = counter;
-            Load();
+            this.counterparty = counterpartys;
+            this.account = account;
+            this.status = status;
+            LoadData();
+        }
+        public ObservableCollection<Counterparty> Counterpartys { get; } = new();
+        public ObservableCollection<Account> Account { get; } = new();
+
+        private readonly IRepository<Status> status;
+
+
+        public List<Status> Status { get; set; }
+
+        private void LoadData()
+        {
+            Load(Counterpartys, counterparty);
+            Load(Account, account);
+
         }
 
-        public ObservableCollection<Counterparty> Counterpartys { get; } = new();
-
-        private void Load()
+        private static void Load<T>(ObservableCollection<T> collection, IRepository<T> rep) where T : BaseEntity
         {
-            Counterpartys.Clear();
-            foreach (var item in counter.GetAll()) {
-                Counterpartys.Add(item);
-            }
+            collection.Clear();
+            foreach (var item in rep.GetAll())
+                collection.Add(item);
         }
 
         private Counterparty selectedCounterparty;
@@ -38,10 +51,33 @@ namespace APK2.ViewModel
         public Counterparty SelectedCounterparty {
             get => selectedCounterparty;
             set {
-                Set(ref selectedCounterparty, value);
+                SetProperty(ref selectedCounterparty, value);
             }
         }
 
+        private Account selectedAccount;
+
+        /// <summary>Выбранный элемент</summary>
+        public Account SelectedAccount {
+            get => selectedAccount;
+            set {
+                SetProperty(ref selectedAccount, value);
+            }
+        }
+
+
+        private Counterparty itemCounterparty;
+
+        public Counterparty ItemCounterparty {
+            get => itemCounterparty;
+            set {
+                SetProperty(ref itemCounterparty, value);
+            }
+        }
+
+
+
     }
+
 
 }

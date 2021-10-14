@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APK2.View"
+        xmlns:vm="clr-namespace:APK2.ViewModel"
         mc:Ignorable="d"
-         DataContext="{Binding TestSpravochikCounterViewModel, Source={StaticResource Locator}}"
-        Title="TestSpravochikCounter" Height="450" Width="800">
-    <Grid>
+        DataContext="{Binding TestSpravochikCounterViewModel, Source={StaticResource Locator}}"
+        Title="Тестовый справочник контрагентов" Height="450" Width="800">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="190*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="Выбрать"/>
+        <Button Grid.Row="0" Content="Выбрать" Command="{Binding Select}"/>
         <DataGrid  Grid.Row="2" BorderThickness="2" BorderBrush="DarkBlue" Margin="3"
                    AutoGenerateColumns="False" IsReadOnly="True"
                   GridLinesVisibility="Vertical"

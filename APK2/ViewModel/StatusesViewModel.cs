@@ -48,7 +48,7 @@ namespace APK2.ViewModel
         public Status SelectedStatus {
             get => selectedStatus;
             set {
-                Set(ref selectedStatus, value);
+                SetProperty(ref selectedStatus, value);
                            }
         }
 
