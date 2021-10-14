@@ -86,7 +86,7 @@ namespace APK2.ViewModel
 
         private void OnOpenAccountView(object p)
         {
-            ViewModelLocator.Instance.TestViewModel.Counterparty = SelectedCounterparty;
+           // ViewModelLocator.Instance.TestViewModel.Counterparty = SelectedCounterparty;
         }
     }
 

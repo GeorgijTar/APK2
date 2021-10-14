@@ -5,8 +5,7 @@
              xmlns:vm="clr-namespace:APK2.ViewModel"             
              StartupUri="View/TestView.xaml">
     <Application.Resources>
-        <!--<vm:ViewModelLocator x:Key="Locator"/>-->
-        <x:Static Member="vm:ViewModelLocator.Instance" MemberType="{x:Type vm:ViewModelLocator}"  x:Key="Locator"/>
+        <x:Static Member="vm:ViewModelLocator.Instance" MemberType="{x:Type vm:ViewModelLocator}" x:Key="Locator"/>
        
     </Application.Resources>
 </Application>

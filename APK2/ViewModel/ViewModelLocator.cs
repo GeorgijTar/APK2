@@ -9,7 +9,6 @@ namespace APK2.ViewModel
 {
     public class ViewModelLocator
     {
-
         private ViewModelLocator() { }
         public static ViewModelLocator Instance { get; } = new ViewModelLocator();
 
